@@ -1,0 +1,102 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>switch case</title>
+</head>
+<body>
+    <div id="home">
+    <h1>Stop Watch</h1>
+    <h1 id="timer">0</h1>
+    <button onclick=" startTimer()">Start</button>
+    <button onclick=" stopTimer()">Stop</button>
+    <button onclick="reset()">Reset</button>
+</div>
+    <script src="app.js"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        #stopwatch {
+            text-align: center;
+        }
+        #time {
+            font-size: 2em;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div id="stopwatch">
+        <div id="time">00:00:00</div>
+        <button id="startBtn">Start</button>
+        <button id="stopBtn">Stop</button>
+        <button id="resetBtn">Reset</button>
+    </div>
+
+    <script>
+        let hours = 0, minutes = 0, seconds = 0;
+        let interval;
+        
+        const timeDisplay = document.querySelector('#time');
+        const startBtn = document.querySelector('#startBtn');
+        const stopBtn = document.querySelector('#stopBtn');
+        const resetBtn = document.querySelector('#resetBtn');
+
+        function updateTime() {
+            seconds++;
+            if (seconds === 60) {
+                seconds = 0;
+                minutes++;
+            }
+            if (minutes === 60) {
+                minutes = 0;
+                hours++;
+            }
+
+            timeDisplay.textContent = 
+                (hours < 10 ? '0' + hours : hours) + ':' +
+                (minutes < 10 ? '0' + minutes : minutes) + ':' +
+                (seconds < 10 ? '0' + seconds : seconds);
+        }
+
+        startBtn.onclick = function() {
+            if (!interval) {
+                interval = setInterval(updateTime, 1000);
+            }
+        };
+
+        stopBtn.onclick = function() {
+            clearInterval(interval);
+            interval = null;
+        };
+
+        resetBtn.onclick = function() {
+            clearInterval(interval);
+            interval = null;
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+            timeDisplay.textContent = '00:00:00';
+        };
+    </script>
+</body>
+</html>

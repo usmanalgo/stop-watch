@@ -1,0 +1,27 @@
+/* h1{
+    text-align: center;
+    color:red;
+    margin-top: 50px;
+    font-size:4em;
+    
+    
+    
+}
+#but{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+#home{
+    background-image: url(https://t4.ftcdn.net/jpg/06/63/99/45/360_F_663994561_qy30RA6KgMrrHIWTK6y7V2RRKQxwQInj.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+} */
